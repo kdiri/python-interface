@@ -1,9 +1,8 @@
-
-
 class InformalParserInterface:
     """
     Informal parser interface
     """
+
     def load_data_source(self, path: str, file_name: str) -> str:
         """
         Load from file to load the text
@@ -24,6 +23,7 @@ class InformalParserInterface:
 
 class PdfParser(InformalParserInterface):
     """Extract the text from a pdf"""
+
     def load_data_source(self, path: str, file_name: str) -> str:
         """Overrides InformalParserInterface.load_data_source()"""
         pass
@@ -35,6 +35,7 @@ class PdfParser(InformalParserInterface):
 
 class EmailParser(InformalParserInterface):
     """Extract the text from a pdf"""
+
     def load_data_source(self, path: str, file_name: str) -> str:
         """Overrides InformalParserInterface.load_data_source()"""
         pass
@@ -43,3 +44,12 @@ class EmailParser(InformalParserInterface):
         """A method defined in only EmailParser.
         Doesn't overrides InformalParserInterface.extract_text()"""
         pass
+
+
+"""
+>>> # Check if both PdfParser and EmlParser implement InformalParserInterface
+>>> issubclass(EmailParser, InformalParserInterface)
+True
+>>> issubclass(PdfParser, InformalParserInterface)
+True
+"""
