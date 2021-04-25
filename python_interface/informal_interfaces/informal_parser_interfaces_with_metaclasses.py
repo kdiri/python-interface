@@ -48,6 +48,11 @@ class EmailParserNew(UpdatedInformalParserInterface):
 
 
 """
+Here, you have a metaclass that’s used to create UpdatedInformalParserInterface. 
+By using a metaclass, you don’t need to explicitly define the subclasses. 
+Instead, the subclass must define the required methods. 
+If it doesn’t, then issubclass(EmlParserNew, UpdatedInformalParserInterface) will return False.
+
 >>> issubclass(PdfParserNew, UpdatedInformalParserInterface)
 True
 # UpdatedInformalParserInterface is a virtual base class of PdfParserNew
