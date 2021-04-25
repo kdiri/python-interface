@@ -23,7 +23,10 @@ class UpdatedInformalParserInterface(metaclass=ParserMeta):
 
 
 class PdfParserNew(UpdatedInformalParserInterface):
-    """Extract the text from a pdf"""
+    """Extract the text from a pdf
+    >>> issubclass(PdfParserNew, UpdatedInformalParserInterface)
+    >>> True
+    """
 
     def load_data_source(self, path: str, file_name: str) -> str:
         """Overrides UpdatedInformalParserInterface.load_data_source()"""
@@ -35,7 +38,11 @@ class PdfParserNew(UpdatedInformalParserInterface):
 
 
 class EmailParserNew(UpdatedInformalParserInterface):
-    """Extract the text from a pdf"""
+    """Extract the text from a email
+    >>> issubclass(EmailParserNew, UpdatedInformalParserInterface)
+    >>> False
+    # Because extract text wasn't defined in EmailParserNew
+    """
 
     def load_data_source(self, path: str, file_name: str) -> str:
         """Overrides UpdatedInformalParserInterface.load_data_source()"""
@@ -43,7 +50,8 @@ class EmailParserNew(UpdatedInformalParserInterface):
 
     def extract_text_from_email(self, full_file_name: str) -> dict:
         """A method defined in only EmailParser.
-        Doesn't overrides UpdatedInformalParserInterface.extract_text()"""
+        Doesn't overrides UpdatedInformalParserInterface.extract_text()
+        """
         pass
 
 
@@ -52,11 +60,4 @@ Here, you have a metaclass that’s used to create UpdatedInformalParserInterfac
 By using a metaclass, you don’t need to explicitly define the subclasses. 
 Instead, the subclass must define the required methods. 
 If it doesn’t, then issubclass(EmlParserNew, UpdatedInformalParserInterface) will return False.
-
->>> issubclass(PdfParserNew, UpdatedInformalParserInterface)
-True
-# UpdatedInformalParserInterface is a virtual base class of PdfParserNew
->>> issubclass(EmailParserNew, UpdatedInformalParserInterface)
-False
-# Because extract text wasn't defined in EmailParserNew
 """
