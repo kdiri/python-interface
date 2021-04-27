@@ -3,6 +3,7 @@ import abc
 
 class Double(metaclass=abc.ABCMeta):
     """Double precision floating point number."""
+
     pass
 
 
@@ -15,4 +16,5 @@ class Double64:
     >>> issubclass(Double64, Double)
     >>> True
     """
+
     pass

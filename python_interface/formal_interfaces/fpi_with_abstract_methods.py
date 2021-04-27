@@ -9,10 +9,10 @@ class FormalParserInterface(metaclass=ABCMeta):
     @classmethod
     def __subclasscheck__(cls, subclass):
         return (
-            hasattr(subclass, "load_data_source") and
-            callable(subclass.load_data_source) and
-            hasattr(subclass, "extract_text") and
-            callable(subclass.extract_text)
+            hasattr(subclass, "load_data_source")
+            and callable(subclass.load_data_source)
+            and hasattr(subclass, "extract_text")
+            and callable(subclass.extract_text)
         )
 
     @abstractmethod
@@ -30,6 +30,7 @@ class PdfParserNew(FormalParserInterface):
     """Extract text from a PDF
     >>> pdf_pars = PdfParserNew()
     """
+
     def load_data_source(self, path: str, file_name: str) -> str:
         """Overrides FormalParserInterface.load_data_source()"""
         pass
@@ -46,6 +47,7 @@ class EmailParserNew(FormalParserInterface):
       File "<input>", line 1, in <module>
     TypeError: Can't instantiate abstract class EmailParserNew with abstract methods extract_text
     """
+
     def load_data_source(self, path: str, file_name: str) -> str:
         """Overrides FormalParserInterface.load_data_source()"""
         pass

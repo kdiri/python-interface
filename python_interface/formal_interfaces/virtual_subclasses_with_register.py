@@ -9,10 +9,11 @@ class FormalParserInterface(metaclass=abc.ABCMeta):
     @classmethod
     def __subclasshook__(cls, subclass):
         return (
-            hasattr(subclass, "load_data_source") and
-            callable(subclass.load_data_source) and
-            hasattr(subclass, "extract_text") and
-            callable(subclass.extract_text) or NotImplemented
+            hasattr(subclass, "load_data_source")
+            and callable(subclass.load_data_source)
+            and hasattr(subclass, "extract_text")
+            and callable(subclass.extract_text)
+            or NotImplemented
         )
 
 
@@ -21,6 +22,7 @@ class PdfParserNew:
     >>> issubclass(PdfParserNew, FormalParserInterface)
     >>> True
     """
+
     def load_data_source(self, path: str, file_name: str) -> str:
         """Overrides FormalParserInterface.load_data_source()"""
         pass

@@ -19,6 +19,7 @@ class UpdatedInformalParserInterface(metaclass=ParserMeta):
     There is no need to define ParserMeta method any class as they are
     implicitly available via .__subclasscheck__().
     """
+
     pass
 
 
